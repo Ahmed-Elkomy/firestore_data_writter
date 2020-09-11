@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firestoredatawritter/src/repository/API/firestore_writer.dart';
 
 import '../models/category.dart';
@@ -27,6 +28,7 @@ class Repository {
   }
 
   Future<bool> loadCategories() async {
+    await Firebase.initializeApp();
     print('Need categories loading: $needCategoriesLoading');
     if (needCategoriesLoading) {
       categories
