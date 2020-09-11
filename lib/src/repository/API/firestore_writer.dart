@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firestoredatawritter/src/models/category.dart';
 import 'package:firestoredatawritter/src/models/question.dart';
 
 //void main() {
@@ -8,10 +9,10 @@ void main() {
 //  FirestoreWriter firestoreWriter = FirestoreWriter();
 //  firestoreWriter.writeToFireStore();
 
-  FirestoreWriter.writeToFireStore();
+  FirestoreService.writeToFireStore();
 }
 
-class FirestoreWriter {
+class FirestoreService {
   static FirebaseFirestore databaseReference = FirebaseFirestore.instance;
   static writeToFireStore() {
 //    Map firestoreData = json.decode(jsonStr);
@@ -80,9 +81,21 @@ class FirestoreWriter {
         .get()
         .then((QuerySnapshot snapshot) {
 //      numberOfQuestions =int.parse(snapshot.docs[0].data()["number_of_questions_per_exam"]);
-      numberOfQuestions =snapshot.docs[0].data()["number_of_questions_per_exam"];
+      numberOfQuestions =
+          snapshot.docs[0].data()["number_of_questions_per_exam"];
     });
     return numberOfQuestions;
+  }
+
+  static Future<List<Category>> getCategories() async {
+    int numberOfQuesitons = await getNumberOfQuestion();
+    List<Question> questionList = await readFromFireStore();
+    int numberOfTest = (questionList.length / numberOfQuesitons).truncate();
+    List<Category> categories = List<Category>();
+    for (int i = 1; i <= numberOfTest; i++) {
+      categories.add(Category(name: "Test #$i", id: i));
+    }
+    return categories;
   }
 
   static final Map jsonStr = {
