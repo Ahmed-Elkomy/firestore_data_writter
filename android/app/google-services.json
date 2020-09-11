@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "329996506835",
+    "firebase_url": "https://aws-exams.firebaseio.com",
+    "project_id": "aws-exams",
+    "storage_bucket": "aws-exams.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329996506835:android:d5845029a7d8f2271e6626",
+        "android_client_info": {
+          "package_name": "com.elkomy.firestoredatawritter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329996506835-se5pgfo52r9c671itnrfuq7s9p3kdvpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPvtqRGZaMWS9AksFS0Qb2bgOofitT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329996506835-se5pgfo52r9c671itnrfuq7s9p3kdvpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
